@@ -1,6 +1,6 @@
 import React, {useEffect,useState} from 'react';
 import {lists} from '../util/companyList'
-
+import {comp} from '../util/categoryPerCompany'
 
 const Main=()=> {
     const [companies, setCompanies] = useState(null)
@@ -8,11 +8,11 @@ const Main=()=> {
 
     return (
         <div>
-           <ul>
-            {lists.map((list)=>(
-                <li>{list.title}</li>
-            ))}
-            </ul>
+          <ul>
+              {Object.entries(lists).map(([key,list]) =>(
+                  <li key={key}>{list.title}</li>
+              ))}
+          </ul>
         </div>
     )
 }

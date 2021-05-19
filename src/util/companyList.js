@@ -1,4 +1,4 @@
-  export const lists = [{
+  export const lists = {
     "comp001": {
       "title": "AachenMünchener",
       "img": "/company-logos/logos1x/de001.png?ver=gz30i",
@@ -1195,4 +1195,4 @@
       "imgsrcset": "/company-logos/logos1x/de480.png?ver=gz30i 1x, /company-logos/logos2x/de480.png?ver=gz30i 2x, /company-logos/logos3x/de480.png?ver=gz30i 3x"
     }
   }
-]
+
