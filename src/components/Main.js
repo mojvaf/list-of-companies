@@ -1,18 +1,52 @@
-import React, {useEffect,useState} from 'react';
-import {lists} from '../util/companyList'
-import {comp} from '../util/categoryPerCompany'
+import React, {useState} from 'react';
+import CompaniesCategories from './CompaniesCategories';
+
+// Flies
+import companies from '../util/companyList.json'
+
+// Material Ul 
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import { Button } from '@material-ui/core';
+
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
+
 
 const Main=()=> {
-    const [companies, setCompanies] = useState(null)
+  const classes = useStyles();  
 
+  const [selected,setSelected] = useState();
+  
+
+  const handelClick = (companyId) => {
+    setSelected(companyId);
+
+  }
 
     return (
-        <div>
-          <ul>
-              {Object.entries(lists).map(([key,list]) =>(
-                  <li key={key}>{list.title}</li>
+        <div className={classes.root}>
+           <Grid container spacing={3}>
+              {Object.entries(companies).map(([key,company]) =>(
+                  <Grid item key={key}> 
+                  <Paper className={classes.paper}>Company Name:  {company.title}
+                  <Button color="secondary" onClick={()=> handelClick(key)}>see the categories</Button>
+                  </Paper>
+                  </Grid>
               ))}
-          </ul>
+          </Grid>
+          <CompaniesCategories selected={selected} />
         </div>
     )
 }

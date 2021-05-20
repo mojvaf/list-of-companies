@@ -1,4 +1,4 @@
-  export const lists = {
+   {
     "comp001": {
       "title": "AachenMünchener",
       "img": "/company-logos/logos1x/de001.png?ver=gz30i",
@@ -24,6 +24,7 @@
       "img": "/company-logos/logos1x/de006.png?ver=gz30i",
       "imgsrcset": "/company-logos/logos1x/de006.png?ver=gz30i 1x, /company-logos/logos2x/de006.png?ver=gz30i 2x, /company-logos/logos3x/de006.png?ver=gz30i 3x"
     },
+    
     "comp008": {
       "title": "Allcura",
       "img": "/company-logos/logos1x/de008.png?ver=gz30i",
@@ -1194,5 +1195,6 @@
       "img": "/company-logos/logos1x/de480.png?ver=gz30i",
       "imgsrcset": "/company-logos/logos1x/de480.png?ver=gz30i 1x, /company-logos/logos2x/de480.png?ver=gz30i 2x, /company-logos/logos3x/de480.png?ver=gz30i 3x"
     }
+    
   }
 
