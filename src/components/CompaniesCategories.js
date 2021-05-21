@@ -19,7 +19,7 @@ export default function CompaniesCategories({selected}) {
 
     return (
         <div> 
-        <h2>The insurance provides</h2>
+        <h2>Categories</h2>
             {companyCategories ? (
                    companyCategories.map((category) => (
                        <div key={`${selected}-${category.title}`}>{category.title}</div>
