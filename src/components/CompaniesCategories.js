@@ -1,34 +1,29 @@
 import React, {useEffect,useState} from 'react'
+//files
 import categoryPerCompany from '../util/categoryPerCompany.json'
 import  categories from '../util/categoryList.json'
 
 
 export default function CompaniesCategories({selected}) {
-    console.log(selected)
     const [companyCategories, setCompanyCategories] = useState();
 
     useEffect(() => {
         if(!selected) {
-          return;
+          return 
         }
-    
-        const companyCategoryIds = categoryPerCompany[selected];
-          console.log(categoryPerCompany)
-        const companyCategories = Object.keys(companyCategoryIds).map((categoryId) => categories[categoryId]);
-        console.log(companyCategories)
-    
-        setCompanyCategories(companyCategories);
-    
-      }, [selected])
+         const companyCategoryIds = categoryPerCompany[selected];   
+         const companyCategories = Object.keys(companyCategoryIds).map((categoryId) => categories[categoryId]);     
+         setCompanyCategories(companyCategories)
+          }, [selected])
     
 
     return (
-        <div>
+        <div> 
+        <h2>The insurance provides</h2>
             {companyCategories ? (
                    companyCategories.map((category) => (
                        <div key={`${selected}-${category.title}`}>{category.title}</div>
-                     ))
-                   
+                     ))     
            ): null}
         </div>
     )

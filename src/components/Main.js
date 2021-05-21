@@ -1,52 +1,69 @@
 import React, {useState} from 'react';
 import CompaniesCategories from './CompaniesCategories';
 
-// Flies
+// File
 import companies from '../util/companyList.json'
 
 // Material Ul 
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { Button } from '@material-ui/core';
-
+import ListItem from '@material-ui/core/ListItem';
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+    margin: '70px',
+    minHeight:'80vh',
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+  gridTop:{
+    backgroundColor:	'#2f6a87',
+    color: 'white',
+    width: '200px',
+    height: '1000px',
+    overflow: 'scroll',
   },
+  gridDown:{
+    backgroundColor: '#6eb2cc',
+    color: 'white',
+    fontStyle: 'italic',
+  },
+   h1:{
+    position: 'sticky',
+    top: '0',
+   }
 }));
+
 
 
 const Main=()=> {
   const classes = useStyles();  
 
   const [selected,setSelected] = useState();
-  
+
 
   const handelClick = (companyId) => {
     setSelected(companyId);
 
   }
-
     return (
         <div className={classes.root}>
-           <Grid container spacing={3}>
-              {Object.entries(companies).map(([key,company]) =>(
-                  <Grid item key={key}> 
-                  <Paper className={classes.paper}>Company Name:  {company.title}
-                  <Button color="secondary" onClick={()=> handelClick(key)}>see the categories</Button>
-                  </Paper>
-                  </Grid>
-              ))}
+         <Grid container spacing={2}>
+            <Grid item xs={12} md={8} className={classes.gridTop}>
+             <h1 className={classes.h1}>Name of the companies</h1>
+              {Object.entries(companies).map(([key,company]) =>( 
+                   <ListItem 
+                  button
+                  item key={key} onClick={()=> handelClick(key)}> 
+                  {company.title}
+                  </ListItem>
+                ))}
+              </Grid>
+             <Grid item xs={12} md={4} className={classes.gridDown}>
+               <CompaniesCategories selected={selected}/>
+            </Grid>
           </Grid>
-          <CompaniesCategories selected={selected} />
         </div>
     )
 }
